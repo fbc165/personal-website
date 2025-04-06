@@ -42,7 +42,7 @@ services:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-    entrypoint: "/bin/sh -c 'sleep 10 && certbot certonly --webroot --webroot-path=/code/static -d seusite.com -d www.seusite.com --email seu@email.com --agree-tos --non-interactive'"
+    entrypoint: "/bin/sh -c 'sleep 10 && certbot certonly --webroot --webroot-path=/code/static -d fabricioalves.engineer -d fabricioalves.engineer --email fabricio.alves2698@gmail.com --agree-tos --non-interactive'"
 
 volumes:
   postgres_data:
