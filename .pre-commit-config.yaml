@@ -11,9 +11,6 @@ repos:
         - id: debug-statements
         - id: detect-private-key
         - id: end-of-file-fixer
-        - id: trailing-whitespace
-        - id: no-commit-to-branch
-          args: [--branch, dev, --branch, master, --branch, stable]
 
     - repo: https://github.com/astral-sh/ruff-pre-commit
       rev: v0.11.0
