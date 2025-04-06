@@ -10,7 +10,6 @@ repos:
       hooks:
         - id: debug-statements
         - id: detect-private-key
-        - id: end-of-file-fixer
 
     - repo: https://github.com/astral-sh/ruff-pre-commit
       rev: v0.11.0
