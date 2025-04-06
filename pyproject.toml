@@ -1,0 +1,25 @@
+[tool.ruff]
+
+fix = true
+exclude = ["migrations"]
+
+lint.select = [
+    "F401",    # Import não utilizado
+    "B006",    # Uso de argumentos mutáveis como valores padrão em definições de função
+    "B019",    # Uso de functools.lru_cache em métodos de classe/instância (pode causar vazamentos de memória)
+    "F841",    # Variável local atribuída mas nunca utilizada
+    "I",       # Regras relacionadas à ordenação de imports
+    "N",       # Regras de convenções de nomenclatura em Python (PEP8)
+    "PT001",   # Uso correto de decoradores @pytest.fixture
+    "PT022",   # Fixture sem teardown (uso desnecessário de yield)
+    "RET503",  # Verifica se há return implícito
+    "RUF013",  # PEP484 proíbe Optional implícito
+    "RUF015",  # Verifica uso de list(...)[0] ao invés de next(...) ou next(iter(...)
+    "RUF017",  # Verifica uso do sum() de lista quadrática
+    "SIM300",  # Yoda condiction detectada
+    "SLF",     # Acesso à membro privado de uma classe
+    "T20",     # Verifica se há print ou pprint
+    "TID252",  # Import com caminho relativo ao invés de caminho absoluto
+    "TID251",  # Import banido
+    "UP006"    # Uso desnecessário do módulo typing (ex.: Dict ao invés de dict)
+]
