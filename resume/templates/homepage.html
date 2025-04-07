@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }} - Currículo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 2rem;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .experience, .education {
+            border-left: 3px solid #3498db;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .skills, .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #3498db;
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .download-btn {
+            background: #3498db;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align: center;">
+            <img src="{% static 'resume/profile.jpg' %}" alt="Foto de Perfil" class="profile-img">
+            <h1>{{ name }}</h1>
+            <h2>{{ title }}</h2>
+            <a href="{% static 'resume/fabricio_cv.pdf' %}" target="_blank" class="download-btn">
+                📄 Baixar Currículo (PDF)
+            </a>
+        </div>
+
+        <div class="section">
+            <p>{{ about }}</p>
+        </div>
+
+        <div class="section">
+            <h2>Experiência Profissional</h2>
+            {% for job in experience %}
+            <div class="experience">
+                <strong>{{ job.position }}</strong> – {{ job.company }} ({{ job.duration }})<br>
+                <small>{{ job.description }}</small>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <h2>Formação Acadêmica</h2>
+            {% for edu in education %}
+            <div class="education">
+                <strong>{{ edu.degree }}</strong> – {{ edu.institution }} ({{ edu.duration }})
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <h2>Competências</h2>
+            <div class="skills">
+                {% for skill in skills %}
+                <span class="tag">{{ skill }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Idiomas</h2>
+            <div class="languages">
+                {% for lang in languages %}
+                <span class="tag">{{ lang }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
