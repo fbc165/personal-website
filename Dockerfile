@@ -13,4 +13,6 @@ COPY . .
 
 WORKDIR /code/website
 
+RUN python manage.py collectstatic --noinput
+
 CMD ["gunicorn", "website.wsgi:application", "--bind", "0.0.0.0:8000"]
