@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'personal-website:latest'
-        CONTAINER_NAME = 'personal-website'
+        PROJECT_NAME = 'personal-django-app'
     }
 
     stages {
@@ -13,18 +12,39 @@ pipeline {
             }
         }
 
-        stage('Build da Imagem Docker') {
+        stage('Carregar Secrets') {
+            environment {
+                DB_NAME = credentials('POSTGRES_DB')
+                DB_USER = credentials('POSTGRES_USER')
+                DB_PASSWORD = credentials('POSTGRES_PASSWORD')
+                DJANGO_SECRET_KEY = credentials('DJANGO_SECRET_KEY')
+                DEBUG = credentials('DEBUG')
+            }
+
             steps {
-                sh "docker build -t $IMAGE_NAME ."
+                echo "Secrets carregadas com sucesso."
             }
         }
 
-        stage('Deploy Container') {
+        stage('Criar .env') {
             steps {
-                // Remove container antigo, se existir
+                sh '''
+                cat > .env <<EOF
+                POSTGRES_DB=${DB_NAME}
+                POSTGRES_USER=${DB_USER}
+                POSTGRES_PASSWORD=${DB_PASSWORD}
+                DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+                DEBUG=${DEBUG}
+                EOF
+                '''
+            }
+        }
+
+        stage('Deploy com Docker Compose') {
+            steps {
                 sh """
-                docker rm -f $CONTAINER_NAME || true
-                docker run -d --name $CONTAINER_NAME -p 80:80 $IMAGE_NAME
+                docker-compose -p $PROJECT_NAME down
+                docker-compose -p $PROJECT_NAME up --build -d
                 """
             }
         }
