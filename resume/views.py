@@ -12,7 +12,7 @@ def homepage(request):
                 "position": "Engenheiro de Software",
                 "company": "Telavita",
                 "duration": "Nov 2024 - Presente",
-                "description": "Desenvolvo e dou manutenção no backend nos microsserviços em python da aplicação. Crio automações usando python, n8n e javascript.",
+                "description": "Desenvolvo e dou manutenção no backend nos microsserviços em python da aplicação. Crio automações usando python, n8n e javascript. Busco sempre realizar entregas de valor que contribuam para melhora da aplicação e experiência do usuário",
             },
             {
                 "position": "Estagiário em Desenvolvimento Web",
