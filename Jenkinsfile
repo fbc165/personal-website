@@ -14,7 +14,6 @@ pipeline {
                 DJANGO_SECRET_KEY = credentials('DJANGO_SECRET_KEY')
                 DEBUG = credentials('DEBUG')
             }
-
             steps {
                 echo "✅ Secrets carregadas"
             }
@@ -34,13 +33,12 @@ pipeline {
             }
         }
 
-        stages {
         stage('Pull do GitHub') {
             steps {
                 git branch: 'main', url: 'https://github.com/fbc165/personal-website.git'
             }
         }
-            
+
         stage('Deploy com Docker Compose') {
             steps {
                 sh '''
