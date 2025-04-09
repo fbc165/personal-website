@@ -42,8 +42,8 @@ pipeline {
         stage('Deploy com Docker Compose') {
             steps {
                 sh '''
-                docker-compose -p $PROJECT_NAME down
-                docker-compose -p $PROJECT_NAME up --build -d
+                docker compose -p $PROJECT_NAME down
+                docker compose -p $PROJECT_NAME up --build -d
                 '''
             }
         }
