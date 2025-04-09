@@ -6,19 +6,19 @@ def homepage(request):
     context = {
         "name": "Fabricio Alves",
         "title": "Engenheiro de Software",
-        "about": "Sou engenheiro com experiência em desenvolvimento web, Python, automação industrial e sistemas distribuídos.",
+        "about": "Engenheiro generalista com experiência em desenvolvimento web backend, python e sistemas distribuídos.",
         "experience": [
             {
                 "position": "Estagiário em Desenvolvimento Web",
                 "company": "STMicroelectronics",
                 "duration": "Jan 2023 - Jun 2023",
-                "description": "Desenvolvimento de aplicação web e backend de IA com Django, FastAPI, PostgreSQL.",
+                "description": "Desenvolvi uma aplicação web que possibilitou a acessibilidade de um modelo de IA interno",
             },
             {
-                "position": "Estágio em Automação",
+                "position": "Desenvolvedor Python",
                 "company": "AUTOMA",
                 "duration": "Mai 2022 - Dez 2022",
-                "description": "Programação em Python para sistemas SCADA e automação de subestações.",
+                "description": "Implementei scripts em Python para automação de processos industriais, otimizando fluxos de dados e reduzindo o tempo de processamento em 40%..",
             },
         ],
         "education": [
@@ -39,8 +39,8 @@ def homepage(request):
             "FastAPI",
             "PostgreSQL",
             "JavaScript",
+            "Node.JS",
             "HTMX",
-            "Node-RED",
             "AWS",
         ],
         "languages": ["Português (nativo)", "Inglês (avançado)", "Francês (fluente)"],
