@@ -6,8 +6,14 @@ def homepage(request):
     context = {
         "name": "Fabricio Alves",
         "title": "Engenheiro de Software",
-        "about": "Engenheiro generalista com experiência em desenvolvimento web backend, python e sistemas distribuídos.",
+        "about": "Engenheiro de formação com experiência em desenvolvimento web backend, python e sistemas distribuídos.",
         "experience": [
+            {
+                "position": "Engenheiro de Software",
+                "company": "Telavita",
+                "duration": "Nov 2024 - Presente",
+                "description": "Desenvolvo e dou manutenção no backend nos microsserviços da aplicação. Crio automações usando python, n8n e javascript.",
+            },
             {
                 "position": "Estagiário em Desenvolvimento Web",
                 "company": "STMicroelectronics",
