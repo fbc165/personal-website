@@ -46,6 +46,7 @@ def homepage(request):
             "Flask",
             "PostgreSQL",
             "JavaScript",
+            "n8n",
             "Node.JS",
             "Javascript",
             "Docker",
