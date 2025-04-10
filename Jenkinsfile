@@ -6,13 +6,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout do Código') {
-            steps {
-                echo "📦 Clonando repositório do GitHub..."
-                checkout scm
-            }
-        }
-
         stage('Carregar Secrets') {
             environment {
                 DB_NAME = credentials('POSTGRES_DB')
