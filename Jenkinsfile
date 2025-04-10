@@ -40,6 +40,9 @@ pipeline {
             steps {
                 dir("${env.WORKSPACE}") {
                     sh '''
+                    echo "🧹 Removendo container certbot (se existir)..."
+                    docker rm -f certbot || true
+
                     echo "🧱 Parando containers existentes..."
                     docker-compose -p $PROJECT_NAME down --remove-orphans
 
