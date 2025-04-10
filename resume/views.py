@@ -43,6 +43,7 @@ def homepage(request):
             "Python",
             "Django",
             "FastAPI",
+            "Flask",
             "PostgreSQL",
             "JavaScript",
             "Node.JS",
