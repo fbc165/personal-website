@@ -17,7 +17,7 @@ def homepage(request):
             {
                 "position": "Estagiário em Desenvolvimento Web",
                 "company": "STMicroelectronics",
-                "duration": "Jan 2023 - Jun 2023",
+                "duration": "Jan 2024 - Agosto 2024",
                 "description": "Desenvolvi uma aplicação web que possibilitou a acessibilidade de um modelo de IA interno para predição de valores de um circuito eletrônico",
             },
             {
