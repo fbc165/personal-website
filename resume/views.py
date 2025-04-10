@@ -54,6 +54,7 @@ def homepage(request):
             "HTMX",
             "CI/CD",
             "AWS",
+            "C",
         ],
         "languages": ["Português (nativo)", "Inglês (avançado)", "Francês (fluente)"],
     }
