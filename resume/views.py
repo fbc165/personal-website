@@ -49,6 +49,7 @@ def homepage(request):
             "Javascript",
             "Docker",
             "HTMX",
+            "CI/CD",
             "AWS",
         ],
         "languages": ["Português (nativo)", "Inglês (avançado)", "Francês (fluente)"],
