@@ -52,20 +52,8 @@ services:
       --agree-tos --no-eff-email --non-interactive
       -d fabricioalves.engineer"
 
-  jenkins:
-    build:
-      context: .
-      dockerfile: Dockerfile.jenkins
-    container_name: jenkins
-    ports:
-      - "8080:8080"
-      - "50000:50000"
-    volumes:
-      - jenkins_home:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-
 volumes:
   postgres_data:
   static_volume:
   media_volume:
-  jenkins_home:
+
