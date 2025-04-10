@@ -48,6 +48,7 @@ def homepage(request):
             "JavaScript",
             "n8n",
             "Node.JS",
+            "Express.JS",
             "Javascript",
             "Docker",
             "HTMX",
