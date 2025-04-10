@@ -40,12 +40,6 @@ pipeline {
             steps {
                 dir("${env.WORKSPACE}") {
                     sh '''
-                    echo "🧹 Removendo containers antigos (se existirem)..."
-                    docker rm -f certbot || true
-                    docker rm -f django_app || true
-                    docker rm -f db || true
-                    docker rm -f nginx || true
-
                     echo "🧱 Parando containers existentes..."
                     docker-compose -p $PROJECT_NAME down --remove-orphans
 

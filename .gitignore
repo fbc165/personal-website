@@ -5,7 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
-
+media/
 # Distribution / packaging
 .Python
 build/
@@ -172,3 +172,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+static/
+staticfiles/
+letsencrypt/

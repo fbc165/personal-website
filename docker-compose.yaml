@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   web:
@@ -13,7 +13,14 @@ services:
       - "8000"
     depends_on:
       - db
-    entrypoint: ./entrypoint.sh
+    entrypoint: >
+      /bin/sh -c "sleep 10 && \
+      python manage.py migrate && \
+      python manage.py collectstatic --noinput && \
+      gunicorn website.wsgi:application --bind 0.0.0.0:8000 --workers 5 --timeout 120"
+
+    netowrks:
+      - jenkins-net
 
   db:
     image: postgres:14
@@ -23,6 +30,8 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - jenkins-net
 
   nginx:
     image: nginx:latest
@@ -38,6 +47,8 @@ services:
       - ./letsencrypt:/var/lib/letsencrypt
     depends_on:
       - web
+    networks:
+      - jenkins-net
 
   certbot:
     image: certbot/certbot
@@ -51,6 +62,10 @@ services:
       --email fabricio.alves2698@gmail.com
       --agree-tos --no-eff-email --non-interactive
       -d fabricioalves.engineer"
+
+networks:
+  jenkins-net:
+    external: true
 
 volumes:
   postgres_data:
