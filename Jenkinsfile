@@ -41,7 +41,7 @@ pipeline {
                 dir("${env.WORKSPACE}") {
                     sh '''
                     echo "🧱 Parando containers existentes..."
-                    docker-compose -p $PROJECT_NAME down
+                    docker-compose -p $PROJECT_NAME down --remove-orphans
 
                     echo "🚀 Subindo nova versão..."
                     docker-compose -p $PROJECT_NAME up --build -d
