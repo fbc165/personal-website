@@ -20,4 +20,7 @@ RUN curl -L "https://github.com/docker/compose/releases/download/v2.24.5/docker-
 # Verificações opcionais
 RUN docker --version && docker-compose --version
 
+# Adiciona o usuário jenkins ao grupo docker
+RUN usermod -aG docker jenkins
+
 USER jenkins
