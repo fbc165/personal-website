@@ -6,6 +6,13 @@ pipeline {
     }
 
     stages {
+        stage('Checkout do Código') {
+            steps {
+                echo "📦 Clonando repositório do GitHub..."
+                checkout scm
+            }
+        }
+
         stage('Carregar Secrets') {
             environment {
                 DB_NAME = credentials('POSTGRES_DB')
@@ -15,37 +22,40 @@ pipeline {
                 DEBUG = credentials('DEBUG')
             }
             steps {
-                echo "✅ Secrets carregadas"
+                echo "🔐 Secrets carregadas com sucesso"
             }
         }
 
-        stage('Criar .env') {
+        stage('Gerar .env') {
             steps {
-                sh '''
-                cat > .env <<EOF
-                POSTGRES_DB=${DB_NAME}
-                POSTGRES_USER=${DB_USER}
-                POSTGRES_PASSWORD=${DB_PASSWORD}
-                DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
-                DEBUG=${DEBUG}
-                EOF
-                '''
-            }
-        }
-
-        stage('Pull do GitHub') {
-            steps {
-                git branch: 'main', url: 'https://github.com/fbc165/personal-website.git'
+                dir("${env.WORKSPACE}") {
+                    sh '''
+                    echo "📝 Criando .env com variáveis..."
+                    cat > .env <<EOF
+                    POSTGRES_DB=${DB_NAME}
+                    POSTGRES_USER=${DB_USER}
+                    POSTGRES_PASSWORD=${DB_PASSWORD}
+                    DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+                    DEBUG=${DEBUG}
+                    EOF
+                    '''
+                }
             }
         }
 
         stage('Deploy com Docker Compose') {
             steps {
-                sh '''
-                docker-compose -p $PROJECT_NAME down
-                docker-compose -p $PROJECT_NAME up --build -d
-                '''
+                dir("${env.WORKSPACE}") {
+                    sh '''
+                    echo "🧱 Parando containers existentes..."
+                    docker-compose -p $PROJECT_NAME down
+
+                    echo "🚀 Subindo nova versão..."
+                    docker-compose -p $PROJECT_NAME up --build -d
+                    '''
+                }
             }
         }
     }
 }
+
