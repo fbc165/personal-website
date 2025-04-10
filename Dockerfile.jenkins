@@ -23,4 +23,4 @@ RUN docker --version && docker-compose --version
 # Adiciona o usuário jenkins ao grupo docker
 RUN usermod -aG docker jenkins
 
-USER jenkins
+USER root
