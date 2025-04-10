@@ -55,6 +55,7 @@ def homepage(request):
             "CI/CD",
             "AWS",
             "C",
+            "POO",
         ],
         "languages": ["Português (nativo)", "Inglês (avançado)", "Francês (fluente)"],
     }
