@@ -25,11 +25,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the Django project to the container
 COPY . /app/
  
+cat .env
 # Expose the Django port
 EXPOSE 8000
 
 CMD ["/bin/sh", "-c", "\
-  ls -la && \
   python ./manage.py migrate && \
   python ./manage.py collectstatic --noinput && \
   gunicorn website.wsgi:application --bind 0.0.0.0:8000 --workers 5 --timeout 120"]
