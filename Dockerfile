@@ -21,9 +21,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar o restante do código
 COPY . .
 
-# Torna o entrypoint executável
-RUN chmod +x ./entrypoint.sh
-
 # Expõe a porta da app
 EXPOSE 8000
 
