@@ -21,6 +21,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar o restante do código
 COPY . .
 
+RUN ls -la
 # Expõe a porta da app
 EXPOSE 8000
 
