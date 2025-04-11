@@ -51,9 +51,10 @@ services:
     volumes:
       - ./letsencrypt:/etc/letsencrypt
       - ./letsencrypt:/var/lib/letsencrypt
+      - ./letsencrypt/www:/var/www/certbot
     entrypoint: >
       /bin/sh -c "sleep 10 &&
-      certbot certonly --webroot --webroot-path=/var/lib/letsencrypt
+      certbot certonly --webroot --dry-run --webroot-path=/var/www/certbot
       --email fabricio.alves2698@gmail.com
       --agree-tos --no-eff-email --non-interactive
       -d fabricioalves.engineer"
