@@ -7,34 +7,29 @@ pipeline {
 
     stages {
         stage('Carregar Secrets') {
-            environment {
-                DB_NAME = credentials('POSTGRES_DB')
-                DB_USER = credentials('POSTGRES_USER')
-                DB_PASSWORD = credentials('POSTGRES_PASSWORD')
-                DJANGO_SECRET_KEY = credentials('DJANGO_SECRET_KEY')
-                DEBUG = credentials('DEBUG')
-            }
             steps {
-                echo "🔐 Secrets carregadas com sucesso"
-            }
-        }
-
-        stage('Gerar .env') {
-            steps {
-                dir("${env.WORKSPACE}") {
+                withCredentials([
+                    string(credentialsId: 'POSTGRES_DB', variable: 'POSTGRES_DB'),
+                    string(credentialsId: 'POSTGRES_USER', variable: 'POSTGRES_USER'),
+                    string(credentialsId: 'POSTGRES_PASSWORD', variable: 'POSTGRES_PASSWORD'),
+                    string(credentialsId: 'DJANGO_SECRET_KEY', variable: 'DJANGO_SECRET_KEY'),
+                    string(credentialsId: 'DEBUG', variable: 'DEBUG')
+                ]) {
                     sh '''
-                    echo "📝 Criando .env com variáveis..."
-                    cat > .env <<EOF
-                    POSTGRES_DB=${DB_NAME}
-                    POSTGRES_USER=${DB_USER}
-                    POSTGRES_PASSWORD=${DB_PASSWORD}
-                    DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
-                    DEBUG=${DEBUG}
-                    EOF
+                        echo "🔐 Criando .env com variáveis..."
+                        cat > .env <<EOF
+			POSTGRES_DB=${POSTGRES_DB}
+			POSTGRES_USER=${POSTGRES_USER}
+			POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+			DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+			DEBUG=${DEBUG}
+			EOF
                     '''
                 }
             }
         }
+
+     
 
         stage('Deploy com Docker Compose') {
             steps {
