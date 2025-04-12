@@ -15,7 +15,7 @@ def homepage(request):
                 "description": "Nesta healthtech, desenvolvo e dou manutenção no backend nos microsserviços em python da aplicação. Crio automações usando n8n e javascript.",
             },
             {
-                "position": "Estagiário em Desenvolvimento Fullstack",
+                "position": "Estagiário em Engenharia de Software",
                 "company": "STMicroelectronics",
                 "duration": "Jan 2024 - Agosto 2024",
                 "description": "Desenvolvi uma aplicação web que possibilitou a acessibilidade de um modelo de IA interno para predição de valores de um circuito eletrônico",
