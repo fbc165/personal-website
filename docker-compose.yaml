@@ -38,20 +38,12 @@ services:
       - jenkins-nginx-conf:/etc/nginx/conf.d
       - static_volume:/code/static
       - media_volume:/code/media
-      - ./letsencrypt:/etc/letsencrypt
-      - ./letsencrypt/www:/var/www/certbot
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /srv/letsencrypt/www:/var/www/certbot:ro
     depends_on:
       - web
     networks:
       - jenkins-net
-
-  certbot:
-    image: certbot/certbot:latest
-    volumes:
-      - ./letsencrypt:/etc/letsencrypt
-      - ./letsencrypt/www:/var/www/certbot
-    depends_on:
-      - nginx
 
 networks:
   jenkins-net:
