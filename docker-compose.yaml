@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   web:
-    build: .
+    build: /var/jenkins_home/workspace/website-ci_main
     container_name: django_app
     env_file: .env
     volumes:
