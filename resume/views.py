@@ -13,22 +13,23 @@ def homepage(request):
                 "position": "Engenheiro de Software",
                 "company": "Telavita",
                 "duration": "Nov 2024 - Presente",
-                "description": "Desenvolo novas features no sistema, realizo a manutenção e faço correção de bugs no backend da aplicação.\
+                "description": "Desenvolvo novas features no sistema, realizo a manutenção e faço correção de bugs no backend da aplicação.\
                     Além disso, crio automações usando n8n e javascript para as diversas equipes da empresa.",
             },
             {
                 "position": "Estagiário em Engenharia de Software",
                 "company": "STMicroelectronics",
-                "duration": "Jan 2024 - Agosto 2024 (8 meses)",
-                "description": "Desenvolvi uma aplicação web que tornou acessível um modelo de IA interno para predição \
+                "duration": "Jan 2024 - Agosto 2024",
+                "description": "Desenvolvi uma aplicação web que tornou acessível um modelo próprio da empresa de I.A para predição \
                     de parâmetros de um circuito eletrônico. Esse projeto reduziu o custo com licenças de software de simulação \
                     em aproximadamente €10.000 mensais e aumentou a produtividade de várias equipes devido a redução em 99% do tempo de espera dos resultados.",
             },
             {
                 "position": "Estagiário em Engenharia de Sistemas",
                 "company": "AUTOMA",
-                "duration": "Mai 2022 - Dez 2022 (7 meses)",
-                "description": "Implementei scripts em python para automação de processos industriais, otimizando fluxos de dados.",
+                "duration": "Mai 2022 - Dez 2022",
+                "description": "Implementei scripts em python para automação de processos industriais, otimizando fluxos de dados.\
+                    Esse projeto permitiu aumentar a produtividade da minha equipe devido a eliminação de tarefas reptitivas e demoradas.",
             },
         ],
         "education": [
