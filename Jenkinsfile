@@ -51,6 +51,19 @@ pipeline {
                 }
             }
         }
+	stage('Reload Nginx Configuration') {
+            steps {
+                sh '''
+                    echo "🔄 Verificando se o Nginx está rodando e recarregando configuração..."
+                    # Esperar um pouco para garantir que o container esteja pronto
+                    sleep 5
+                    
+                    # Verificar se o container nginx existe e está rodando
+                    if docker ps | grep -q nginx; then
+                        echo "✅ Container Nginx encontrado, recarregando configuração..."
+                        docker exec nginx nginx -t && docker exec nginx nginx -s reload
+		}
+  	}
     }
 }
 
