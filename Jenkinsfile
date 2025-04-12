@@ -65,7 +65,11 @@ pipeline {
                     
                     # Verificar se o container nginx existe e está rodando
                     if docker ps | grep -q nginx; then
-                        docker cp jenkins:${WORKSPACE}nginx/conf.d/default.conf nginx:/etc/nginx/conf.d/default.conf
+                          docker cp ${WORKSPACE}/nginx/conf.d/default.conf /tmp/default.conf
+                          # Copiar do host para o Nginx
+                          docker cp /tmp/default.conf nginx:/etc/nginx/conf.d/default.conf
+                          # Limpar arquivo temporário
+                          rm /tmp/default.conf
                         echo "✅ Container Nginx encontrado, recarregando configuração..."
                         docker exec nginx nginx -t && docker exec nginx nginx -s reload
                         echo "✅ Configuração do Nginx recarregada com sucesso"
