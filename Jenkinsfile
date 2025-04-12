@@ -28,7 +28,14 @@ pipeline {
                 }
             }
         }
-
+        stage('Preparar estrutura HTTPS') {
+          steps {
+            sh '''
+              echo "📁 Criando estrutura letsencrypt/"
+              mkdir -p letsencrypt/www
+            '''
+          }
+        }
         stage('Preparar Configuração Nginx') {
             steps {
                 sh '''
