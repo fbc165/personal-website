@@ -6,7 +6,7 @@ def homepage(request):
     context = {
         "name": "Fabricio Alves",
         "title": "Engenheiro de Software",
-        "about": "Engenheiro de formação com experiência em desenvolvimento web backend, python e sistemas distribuídos.  Busco sempre realizar entregas de valor que contribuam para melhora da aplicação e experiência do usuário",
+        "about": "Engenheiro de controle e automação com experiência em desenvolvimento web backend, python e sistemas distribuídos.  Busco sempre realizar entregas de valor que contribuam para melhora da aplicação e experiência do usuário",
         "experience": [
             {
                 "position": "Engenheiro de Software",
