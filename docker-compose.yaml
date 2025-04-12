@@ -6,9 +6,9 @@ services:
     container_name: django_app
     env_file: .env
     volumes:
-      - .:/app
-      - static_volume:/app/static
-      - media_volume:/app/media
+      - .:/code
+      - static_volume:/code/static
+      - media_volume:/code/media
     expose:
       - "8000"
     depends_on:
