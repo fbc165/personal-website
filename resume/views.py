@@ -56,6 +56,7 @@ def homepage(request):
             "AWS",
             "C",
             "POO",
+            "Jenkins",
         ],
         "languages": ["Português (nativo)", "Inglês (avançado)", "Francês (fluente)"],
     }
