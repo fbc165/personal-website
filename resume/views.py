@@ -21,7 +21,7 @@ def homepage(request):
                 "description": "Desenvolvi uma aplicação web que possibilitou a acessibilidade de um modelo de IA interno para predição de valores de um circuito eletrônico",
             },
             {
-                "position": "Desenvolvedor Python",
+                "position": "Estagiário em engenharia de sistemas",
                 "company": "AUTOMA",
                 "duration": "Mai 2022 - Dez 2022",
                 "description": "Implementei scripts em Python para automação de processos industriais, otimizando fluxos de dados e reduzindo o tempo de processamento em 40%..",
