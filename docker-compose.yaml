@@ -34,7 +34,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - /var/jenkins_home/workspace/website-ci_main/nginx/conf.d:/etc/nginx/conf.d
+      - jenkins-nginx-conf:/etc/nginx/conf.d
       - static_volume:/code/static
       - media_volume:/code/media
     depends_on:
@@ -47,6 +47,8 @@ networks:
     external: true
 
 volumes:
+  jenkins-nginx-conf:
+    external: true
   postgres_data:
   static_volume:
   media_volume:

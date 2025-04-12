@@ -13,6 +13,7 @@ services:
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
+      - jenkins-nginx-conf:/var/jenkins_home/workspace/website-ci_main/nginx/conf.d
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - jenkins-net
@@ -23,3 +24,4 @@ networks:
 
 volumes:
   jenkins_home:
+  jenkins-nginx-conf:
