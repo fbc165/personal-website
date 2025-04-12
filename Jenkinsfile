@@ -29,7 +29,12 @@ pipeline {
             }
         }
 
-     
+     	stage('Deploy Nginx Config') {
+	    steps {
+	        sh 'cp -f ${WORKSPACE}/nginx/conf.d/default.conf /var/jenkins_home/shared/nginx/'
+	        sh 'docker exec nginx nginx -s reload'
+	    }
+	}
 
         stage('Deploy com Docker Compose') {
             steps {
