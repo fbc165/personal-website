@@ -18,30 +18,34 @@ pipeline {
                     sh '''
                         echo "🔐 Criando .env com variáveis..."
                         cat > .env <<EOF
-			POSTGRES_DB=${POSTGRES_DB}
-			POSTGRES_USER=${POSTGRES_USER}
-			POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-			DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
-			DEBUG=${DEBUG}
-			EOF
+                        POSTGRES_DB=${POSTGRES_DB}
+                        POSTGRES_USER=${POSTGRES_USER}
+                        POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+                        DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+                        DEBUG=${DEBUG}
+                        EOF
                     '''
                 }
             }
         }
 
-     	stage('Deploy Nginx Config') {
-	    steps {
-	        sh 'cp -f ${WORKSPACE}/nginx/conf.d/default.conf /var/jenkins_home/shared/nginx/'
-	        sh 'docker exec nginx nginx -s reload'
-	    }
-	}
+        stage('Preparar Configuração Nginx') {
+            steps {
+                sh '''
+                    echo "📋 Preparando configuração do Nginx..."
+                    mkdir -p /var/jenkins_home/shared/nginx/
+                    cp -f ${WORKSPACE}/nginx/conf.d/default.conf /var/jenkins_home/shared/nginx/
+                    echo "✅ Arquivo de configuração copiado com sucesso"
+                '''
+            }
+        }
 
         stage('Deploy com Docker Compose') {
             steps {
                 dir("${env.WORKSPACE}") {
                     sh '''
-		    ls -la
-		    cat nginx/conf.d/default.conf
+                    ls -la
+                    cat nginx/conf.d/default.conf
                     echo "🧱 Parando containers existentes..."
                     docker-compose -f docker-compose.yaml -p $PROJECT_NAME down --remove-orphans
 
@@ -51,7 +55,8 @@ pipeline {
                 }
             }
         }
-	stage('Reload Nginx Configuration') {
+
+        stage('Reload Nginx Configuration') {
             steps {
                 sh '''
                     echo "🔄 Verificando se o Nginx está rodando e recarregando configuração..."
@@ -62,8 +67,12 @@ pipeline {
                     if docker ps | grep -q nginx; then
                         echo "✅ Container Nginx encontrado, recarregando configuração..."
                         docker exec nginx nginx -t && docker exec nginx nginx -s reload
-		}
-  	}
+                        echo "✅ Configuração do Nginx recarregada com sucesso"
+                    else
+                        echo "⚠️ Container Nginx não encontrado ou não está rodando."
+                    fi
+                '''
+            }
+        }
     }
 }
-
