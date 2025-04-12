@@ -44,8 +44,6 @@ pipeline {
             steps {
                 dir("${env.WORKSPACE}") {
                     sh '''
-                    ls -la
-                    cat nginx/conf.d/default.conf
                     echo "🧱 Parando containers existentes..."
                     docker-compose -f docker-compose.yaml -p $PROJECT_NAME down --remove-orphans
 
