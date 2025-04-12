@@ -34,7 +34,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
+      - /var/jenkins_home/workspace/website-ci_main/nginx/conf.d:/etc/nginx/conf.d
       - static_volume:/code/static
       - media_volume:/code/media
     depends_on:
