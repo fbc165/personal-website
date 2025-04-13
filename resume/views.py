@@ -29,7 +29,7 @@ def homepage(request):
                 "company": "AUTOMA",
                 "duration": "Mai 2022 - Dez 2022",
                 "description": "Implementei scripts em python para automação de processos industriais, otimizando fluxos de dados.\
-                    Esse projeto permitiu aumentar a produtividade da minha equipe devido a eliminação de tarefas reptitivas e demoradas.",
+                    Esse projeto permitiu aumentar a produtividade da minha equipe devido a eliminação de tarefas repetitivas e demoradas.",
             },
         ],
         "education": [
