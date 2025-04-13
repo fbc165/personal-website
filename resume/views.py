@@ -5,6 +5,9 @@ from django.shortcuts import render
 def homepage(request):
     context = {
         "name": "Fabricio Alves",
+        "linkedin": "https://linkedin.com/in/fabricioalves1",
+        "github": "https://github.com/fbc165",
+        "email": "fabricio.alves2698@gmail.com",
         "title": "👷‍♂️💻 Engenheiro de Software",
         "about": "Engenheiro com experiência em desenvolvimento web backend, python e sistemas distribuídos.\
             Busco sempre realizar entregas de valor que contribuam da melhor maneira pro négocio priorizando sempre a experiência do usuário final.",

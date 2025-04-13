@@ -6,25 +6,35 @@
     <title>{{ name }} - Currículo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        :root {
+            --primary: #00bcd4;
+            --background: #121212;
+            --card-bg: #1e1e1e;
+            --text: #e0e0e0;
+            --heading: #ffffff;
+            --tag-bg: #263238;
+            --tag-text: #80deea;
+        }
+
         body {
             font-family: 'Segoe UI', sans-serif;
-            background: #f4f6f8;
+            background: var(--background);
             margin: 0;
             padding: 2rem;
-            color: #333;
+            color: var(--text);
         }
 
         .container {
             max-width: 900px;
             margin: auto;
-            background: #fff;
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 0 30px rgba(0,0,0,0.6);
         }
 
         h1, h2 {
-            color: #2c3e50;
+            color: var(--heading);
         }
 
         .section {
@@ -32,7 +42,7 @@
         }
 
         .experience, .education {
-            border-left: 3px solid #3498db;
+            border-left: 3px solid var(--primary);
             padding-left: 1rem;
             margin-bottom: 1rem;
         }
@@ -44,31 +54,54 @@
         }
 
         .tag {
-            background: #3498db;
-            color: #fff;
+            background: var(--tag-bg);
+            color: var(--tag-text);
             padding: 0.4rem 0.8rem;
             border-radius: 12px;
             font-size: 0.9rem;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             object-fit: cover;
             border-radius: 50%;
-            border: 4px solid #3498db;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            border: 3px solid var(--primary);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.4);
         }
 
         .download-btn {
-            background: #3498db;
-            color: white;
+            background: var(--primary);
+            color: black;
             padding: 0.7rem 1.5rem;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
             margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #008ba3;
+        }
+
+        .contact-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .contact-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--primary);
         }
 
         @media (max-width: 600px) {
@@ -84,6 +117,19 @@
             <img src="{% static 'profile.jpeg' %}" alt="Foto de Perfil" class="profile-img">
             <h1>{{ name }}</h1>
             <h2>{{ title }}</h2>
+
+            <div class="contact-links">
+                {% if linkedin %}
+                    <a href="{{ linkedin }}" target="_blank">LinkedIn</a>
+                {% endif %}
+                {% if github %}
+                    <a href="{{ github }}" target="_blank">GitHub</a>
+                {% endif %}
+                {% if email %}
+                    <a href="mailto:{{ email }}">{{ email }}</a>
+                {% endif %}
+            </div>
+
             <a href="{% static 'fabricio_cv.pdf' %}" target="_blank" class="download-btn">
                 📄 Baixar Currículo (PDF)
             </a>
