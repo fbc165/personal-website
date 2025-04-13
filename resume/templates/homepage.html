@@ -3,79 +3,97 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Fabricio Alves - Eng. de Software</title>
+    <title>{{ name }} - Currículo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <style>
-        :root {
-            --primary: #00bcd4;
-            --background: #121212;
-            --card-bg: #1e1e1e;
-            --text: #e0e0e0;
-            --heading: #ffffff;
-            --tag-bg: #263238;
-            --tag-text: #80deea;
-        }
-
         body {
             font-family: 'Segoe UI', sans-serif;
-            background: var(--background);
+            background: #121212;
             margin: 0;
-            padding: 2rem;
-            color: var(--text);
+            padding-top: 4rem;
+            color: #e0e0e0;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #1f1f1f;
+            padding: 1rem;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav a {
+            margin: 0 1rem;
+            color: #90caf9;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #ffffff;
         }
 
         .container {
             max-width: 900px;
             margin: auto;
-            background: var(--card-bg);
+            background: #1e1e1e;
             padding: 2rem;
             border-radius: 16px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.6);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
 
         h1, h2 {
-            color: var(--heading);
+            color: #90caf9;
         }
 
         .section {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .experience, .education {
-            border-left: 3px solid var(--primary);
+            border-left: 3px solid #90caf9;
             padding-left: 1rem;
             margin-bottom: 1rem;
         }
 
         .skills, .languages {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 0.5rem;
         }
 
         .tag {
-            background: var(--tag-bg);
-            color: var(--tag-text);
+            background: #263238;
+            color: #80cbc4;
             padding: 0.4rem 0.8rem;
             border-radius: 12px;
             font-size: 0.9rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            transform: scale(1.05);
+            background: #37474f;
         }
 
         .profile-img {
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
             border-radius: 50%;
-            border: 3px solid var(--primary);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+            border: 4px solid #90caf9;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .download-btn {
-            background: var(--primary);
-            color: black;
+            background: #90caf9;
+            color: #121212;
             padding: 0.7rem 1.5rem;
             border-radius: 30px;
             text-decoration: none;
@@ -86,25 +104,62 @@
         }
 
         .download-btn:hover {
-            background: #008ba3;
+            background: #64b5f6;
         }
 
         .contact-links {
             margin-top: 1rem;
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
 
         .contact-links a {
-            color: var(--text);
-            text-decoration: none;
+            color: #80cbc4;
             font-size: 1.5rem;
-            transition: color 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .contact-links a:hover {
-            color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        .project-card {
+            background: #263238;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: #81d4fa;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .progress-bar {
+            background: #37474f;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 12px;
+            margin-top: 4px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #4fc3f7;
+            width: var(--fill, 50%);
+            transition: width 0.5s ease;
         }
 
         @media (max-width: 600px) {
@@ -115,6 +170,15 @@
     </style>
 </head>
 <body>
+    <nav class="nav">
+        <a href="#about">Sobre</a>
+        <a href="#experience">Experiência</a>
+        <a href="#education">Formação</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projetos</a>
+        <a href="#languages">Idiomas</a>
+    </nav>
+
     <div class="container">
         <div style="text-align: center;">
             <img src="{% static 'profile.jpeg' %}" alt="Foto de Perfil" class="profile-img">
@@ -144,11 +208,11 @@
             </a>
         </div>
 
-        <div class="section">
+        <div id="about" class="section">
             <p>{{ about }}</p>
         </div>
 
-        <div class="section">
+        <div id="experience" class="section">
             <h2>Experiência Profissional</h2>
             {% for job in experience %}
             <div class="experience">
@@ -158,7 +222,7 @@
             {% endfor %}
         </div>
 
-        <div class="section">
+        <div id="education" class="section">
             <h2>Formação Acadêmica</h2>
             {% for edu in education %}
             <div class="education">
@@ -167,16 +231,36 @@
             {% endfor %}
         </div>
 
-        <div class="section">
+        <div id="skills" class="section">
             <h2>Competências</h2>
             <div class="skills">
                 {% for skill in skills %}
-                <span class="tag">{{ skill }}</span>
+                <div>
+                    <span class="tag">{{ skill.name }}</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="--fill: {{ skill.level }}%;"></div>
+                    </div>
+                </div>
                 {% endfor %}
             </div>
         </div>
 
-        <div class="section">
+        <div id="projects" class="section">
+            <h2>Projetos</h2>
+            <div class="project-grid">
+                {% for project in projects %}
+                <div class="project-card">
+                    <h3>{{ project.name }}</h3>
+                    <p>{{ project.description }}</p>
+                    {% if project.link %}
+                        <a href="{{ project.link }}" target="_blank" style="color: #4fc3f7;">🔗 Ver Projeto</a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="languages" class="section">
             <h2>Idiomas</h2>
             <div class="languages">
                 {% for lang in languages %}
