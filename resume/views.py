@@ -62,7 +62,7 @@ def homepage(request):
             {"name": "CI/CD", "level": 80},
             {"name": "Jenkins", "level": 65},
         ],
-        "languages": ["🇧🇷 Português (nativo)", "🇺🇸 Inglês (avançado)", "🇫🇷 Francês (fluente)"],
+        "languages": ["Português (nativo)", "Inglês (avançado)", "Francês (fluente)"],
         "projects": [
             {
                 'name': 'Sistema Web para Subestações',

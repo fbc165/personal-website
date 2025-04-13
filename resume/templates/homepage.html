@@ -78,13 +78,11 @@
             text-align: center;
         }
 
-        .languages > div {
-            background: rgba(0, 0, 0, 0.1);
-            padding: 0.8rem;
-            border-radius: 10px;
-            text-align: center;
+        .languages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
         }
-
         .profile-img {
             width: 150px;
             height: 150px;
