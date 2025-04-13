@@ -9,7 +9,8 @@ def homepage(request):
         "github": "https://github.com/fbc165",
         "email": "fabricio.alves2698@gmail.com",
         "title": "👷‍♂️💻 Engenheiro de Software",
-        "about": "Engenheiro com experiência em desenvolvimento web backend, python e sistemas distribuídos.\
+        "about": "Engenheiro de software backend especializado em Python, com experiência em criar sistemas eficientes e escaláveis. \
+            Valorizo código limpo, boas práticas e soluções simples para problemas complexos.\
             Busco sempre realizar entregas de valor que contribuam da melhor maneira pro négocio priorizando sempre a experiência do usuário final.",
         "experience": [
             {
@@ -52,17 +53,16 @@ def homepage(request):
             {"name": "Django", "level": 90},
             {"name": "FastAPI", "level": 75},
             {"name": "PostgreSQL", "level": 85},
-            {"name": "JavaScript", "level": 70},
-            {"name": "n8n", "level": 65},
-            {"name": "Node.JS", "level": 60},
-            {"name": "Express.JS", "level": 60},
+            {"name": "JavaScript", "level": 80},
+            {"name": "n8n", "level": 90},
+            {"name": "Node.JS", "level": 80},
+            {"name": "Express.JS", "level": 80},
             {"name": "Docker", "level": 70},
             {"name": "HTMX", "level": 50},
             {"name": "CI/CD", "level": 80},
-            {"name": "AWS", "level": 75},
             {"name": "Jenkins", "level": 65},
         ],
-        "languages": ["Português (nativo)", "Inglês (avançado)", "Francês (fluente)"],
+        "languages": ["🇧🇷 Português (nativo)", "🇺🇸 Inglês (avançado)", "🇫🇷 Francês (fluente)"],
         "projects": [
             {
                 'name': 'Sistema Web para Subestações',
