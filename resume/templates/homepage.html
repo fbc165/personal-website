@@ -186,11 +186,14 @@
 
         <div class="section">
             <h2>Competências</h2>
-            <div class="skills">
-                {% for skill in skills %}
-                <div>{{ skill }}</div>
-                {% endfor %}
+            {% for skill in skills %}
+            <div style="margin-bottom: 1rem;">
+                <strong>{{ skill.name }}</strong>
+                <div style="background: #444; border-radius: 10px; overflow: hidden; height: 14px; margin-top: 4px;">
+                    <div style="background: #64b5f6; height: 100%; width: {{ skill.level }}%;"></div>
+                </div>
             </div>
+            {% endfor %}
         </div>
 
         <div class="section">
