@@ -62,7 +62,7 @@ def homepage(request):
             {"name": "CI/CD", "level": 60},
             {"name": "Jenkins", "level": 65},
         ],
-        "languages": ["Português (nativo)", "Inglês (avançado)", "Francês (fluente)"],
+        # "languages": ["Português (nativo)", "Inglês (avançado)", "Francês (fluente)"],
         "projects": [
             {
                 'title': 'Benchmark: Django sync x async',
