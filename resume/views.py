@@ -65,9 +65,9 @@ def homepage(request):
         "languages": ["Português (nativo)", "Inglês (avançado)", "Francês (fluente)"],
         "projects": [
             {
-                'name': 'Sistema Web para Subestações',
-                'description': 'Aplicação distribuída com mensageria para controle central de dados.',
-                'link': 'https://github.com/seu-usuario/seu-projeto'
+                'name': 'Benchmark: Django sync x Django sync',
+                'description': 'Comparação de performance de uma aplicação simples com e sem oepração I/O',
+                'link': 'https://github.com/fbc165/django-benchmark'
             },
         ],
     }
