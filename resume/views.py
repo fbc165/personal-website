@@ -65,10 +65,10 @@ def homepage(request):
         "languages": ["Português (nativo)", "Inglês (avançado)", "Francês (fluente)"],
         "projects": [
             {
-                'title': 'Benchmark: Django sync x Django sync',
+                'title': 'Benchmark: Django sync x async',
                 'description': 'Comparação de performance de uma aplicação simples com e sem oepração I/O',
                 'link': 'https://github.com/fbc165/django-benchmark',
-                'technologies': "python | django | docker | wrk | matplotlib",
+                'technologies': "python | django | docker | nginx | uvicorn | gunicorn | matplotlib",
             },
         ],
     }
