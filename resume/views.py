@@ -66,15 +66,15 @@ def homepage(request):
         "projects": [
             {
                 'title': 'Benchmark: Django sync x async',
-                'description': 'Comparação de performance de uma aplicação simples com e sem oepração I/O',
+                'description': 'Comparação de performance de uma aplicação simples com e sem operação I/O',
                 'link': 'https://github.com/fbc165/django-benchmark',
                 'technologies': "python | django | docker | nginx | uvicorn | gunicorn | matplotlib",
             },
             {
-                'title': 'Streaming de video',
-                'description': 'Comparação de performance de uma aplicação simples com e sem oepração I/O',
+                'title': 'Videoteca',
+                'description': 'Streaming de vídeo utilizando entrega sob demanda',
                 'link': 'streaming_list',
-                'technologies': "node.js | express.js | bucket s3",
+                'technologies': "node.js | express.js | javascript",
                 'external': 'true',
             },
         ],
