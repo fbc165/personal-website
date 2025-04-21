@@ -70,6 +70,13 @@ def homepage(request):
                 'link': 'https://github.com/fbc165/django-benchmark',
                 'technologies': "python | django | docker | nginx | uvicorn | gunicorn | matplotlib",
             },
+            {
+                'title': 'Streaming de video',
+                'description': 'Comparação de performance de uma aplicação simples com e sem oepração I/O',
+                'link': 'streaming_list',
+                'technologies': "node.js | express.js | bucket s3",
+                'external': 'true',
+            },
         ],
     }
     return render(request, "homepage.html", context)

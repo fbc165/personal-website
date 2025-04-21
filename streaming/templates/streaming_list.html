@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>🎬 Lista de Filmes Disponíveis</h2>
+<ul style="list-style: none; padding-left: 0;">
+  {% for video in videos %}
+    <li style="margin-bottom: 1rem;">
+      <a href="{% url 'streaming_player' filename=video %}" style="color: var(--accent); font-weight: bold; text-decoration: none;">
+        <i class="fas fa-film"></i> {{ video }}
+      </a>
+    </li>
+  {% empty %}
+    <li>Nenhum vídeo encontrado no bucket.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,6 +1,10 @@
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+load_dotenv()  # Carrega o .env antes de ler as variáveis
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -10,6 +14,12 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", False) == "True"
 
+DO_SPACES_BUCKET = os.environ.get("DO_SPACES_BUCKET", "")
+DO_SPACES_ENDPOINT = os.environ.get("DO_SPACES_ENDPOINT", "")
+DO_SPACES_REGION = os.environ.get("DO_SPACES_REGION", "")
+DO_SPACES_KEY = os.environ.get("DO_SPACES_KEY", "")
+DO_SPACES_SECRET = os.environ.get("DO_SPACES_SECRET", "")
+
 ALLOWED_HOSTS = [
     "web",
     "localhost",
@@ -18,6 +28,7 @@ ALLOWED_HOSTS = [
     "www.fabricioalves.engineer",
     "144.126.220.168",
     "testserver",
+    "127.0.0.1",
 ]
 
 # Application definition
@@ -30,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "resume",
+    "streaming",
 ]
 
 MIDDLEWARE = [

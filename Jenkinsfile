@@ -13,7 +13,12 @@ pipeline {
                     string(credentialsId: 'POSTGRES_USER', variable: 'POSTGRES_USER'),
                     string(credentialsId: 'POSTGRES_PASSWORD', variable: 'POSTGRES_PASSWORD'),
                     string(credentialsId: 'DJANGO_SECRET_KEY', variable: 'DJANGO_SECRET_KEY'),
-                    string(credentialsId: 'DEBUG', variable: 'DEBUG')
+                    string(credentialsId: 'DEBUG', variable: 'DEBUG'),
+                    string(credentialsId: 'DO_SPACES_ENDPOINT', variable: 'DO_SPACES_ENDPOINT'),
+                    string(credentialsId: 'DO_SPACES_REGION', variable: 'DO_SPACES_REGION'),
+                    string(credentialsId: 'DO_SPACES_KEY', variable: 'DO_SPACES_KEY'),
+                    string(credentialsId: 'DO_SPACES_SECRET', variable: 'DO_SPACES_SECRET'),
+                    string(credentialsId: 'DO_SPACES_BUCKET', variable: 'DO_SPACES_BUCKET')
                 ]) {
                     sh '''
                         echo "🔐 Criando .env com variáveis..."
@@ -23,6 +28,11 @@ pipeline {
                         POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
                         DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
                         DEBUG=${DEBUG}
+                        DO_SPACES_ENDPOINT=${DO_SPACES_ENDPOINT}
+                        DO_SPACES_REGION=${DO_SPACES_REGION}
+                        DO_SPACES_KEY=${DO_SPACES_KEY}
+                        DO_SPACES_SECRET=${DO_SPACES_SECRET}
+                        DO_SPACES_BUCKET=${DO_SPACES_BUCKET}
                         EOF
                     '''
                 }
